@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Exercise Detail{% endblock %}
+
+{% block content %}
+<div class="exercise-detail-page">
+    <a href="/exercises" class="back-link">&larr; Back to Exercise Library</a>
+
+    <div class="exercise-detail-card" id="exerciseDetail">
+        <div class="exercise-detail-loading">Loading exercise...</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>const EXERCISE_ID = {{ exercise_id }};</script>
+<script src="{{ url_for('static', filename='js/exercise_detail.js') }}"></script>
+{% endblock %}

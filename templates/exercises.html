@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Exercise Library{% endblock %}
+
+{% block content %}
+<div class="exercises-page">
+    <div class="page-header">
+        <h1>Exercise Library</h1>
+        <p class="page-description">Browse all exercises with proper form demonstrations</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-bar">
+        <div class="filter-group">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="strength">Strength</button>
+            <button class="filter-btn" data-category="mobility">Mobility</button>
+            <button class="filter-btn" data-category="cardio">Cardio</button>
+        </div>
+        <div class="filter-group">
+            <select class="form-select filter-select" id="muscleFilter">
+                <option value="">All Muscle Groups</option>
+                <option value="chest">Chest</option>
+                <option value="back">Back</option>
+                <option value="shoulders">Shoulders</option>
+                <option value="arms">Arms</option>
+                <option value="legs">Legs</option>
+                <option value="core">Core</option>
+                <option value="hips">Hips</option>
+                <option value="full body">Full Body</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <input type="text" class="form-input search-input" id="exerciseSearch" placeholder="Search exercises...">
+        </div>
+    </div>
+
+    <!-- Exercise Grid -->
+    <div class="exercise-grid" id="exerciseGrid">
+        <!-- Populated by JS -->
+    </div>
+</div>
+
+<!-- Exercise Detail Modal -->
+<div class="modal-overlay" id="exerciseModal">
+    <div class="modal modal-lg">
+        <div class="modal-header">
+            <h3 id="modalExerciseName">Exercise</h3>
+            <button class="modal-close" id="exerciseModalClose">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-guide-content">
+                <div class="form-guide-visual" id="modalVisual">
+                    <!-- GIF/Video -->
+                </div>
+                <div class="form-guide-details">
+                    <div class="form-guide-info">
+                        <span class="form-guide-badge" id="modalMuscle"></span>
+                        <span class="form-guide-badge" id="modalEquipment"></span>
+                        <span class="form-guide-badge" id="modalDifficulty"></span>
+                    </div>
+                    <p id="modalDescription" class="form-guide-desc"></p>
+                    <h4>Form Cues</h4>
+                    <ol class="form-cues-list" id="modalCues"></ol>
+                    <div class="modal-exercise-stats">
+                        <div class="exercise-stat">
+                            <span class="exercise-stat-label">Sets</span>
+                            <span class="exercise-stat-value" id="modalSets"></span>
+                        </div>
+                        <div class="exercise-stat">
+                            <span class="exercise-stat-label">Reps</span>
+                            <span class="exercise-stat-value" id="modalReps"></span>
+                        </div>
+                    </div>
+                    <div id="modalHistory" class="exercise-history-section" style="display:none;">
+                        <h4>Your History</h4>
+                        <div id="modalHistoryContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/exercises.js') }}"></script>
+{% endblock %}

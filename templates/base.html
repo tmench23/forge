@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ForgeFit{% endblock %} | Home Workout Companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-brand">
+            <a href="/">
+                <span class="brand-icon">&#x1F3CB;&#xFE0F;</span>
+                <span class="brand-text">ForgeFit</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="/" class="nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}">
+                <span class="nav-icon">&#x1F3E0;</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="/schedule" class="nav-link {% if request.endpoint == 'schedule' %}active{% endif %}">
+                <span class="nav-icon">&#x1F4C5;</span>
+                <span>Schedule</span>
+            </a>
+            <a href="/exercises" class="nav-link {% if request.endpoint in ['exercise_library', 'exercise_detail'] %}active{% endif %}">
+                <span class="nav-icon">&#x1F4D6;</span>
+                <span>Exercises</span>
+            </a>
+            <a href="/progress" class="nav-link {% if request.endpoint == 'progress' %}active{% endif %}">
+                <span class="nav-icon">&#x1F4C8;</span>
+                <span>Progress</span>
+            </a>
+            <a href="/achievements" class="nav-link {% if request.endpoint == 'achievements' %}active{% endif %}">
+                <span class="nav-icon">&#x1F3C6;</span>
+                <span>Achievements</span>
+            </a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

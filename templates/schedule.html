@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Weekly Schedule{% endblock %}
+
+{% block content %}
+<div class="schedule-page">
+    <div class="page-header">
+        <h1>Weekly Schedule</h1>
+        <p class="page-description">Plan your week for balanced training. Mix strength, mobility, and cardio.</p>
+    </div>
+
+    <div class="schedule-grid" id="scheduleGrid">
+        <!-- Populated by JS - 7 day cards -->
+    </div>
+
+    <!-- Schedule Edit Modal -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="editModalTitle">Edit Day</h3>
+                <button class="modal-close" id="editModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="editWorkoutType">Workout Type</label>
+                    <select id="editWorkoutType" class="form-select">
+                        <option value="strength">Strength Training</option>
+                        <option value="mobility">Mobility / Flexibility</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="rest">Rest Day</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editWorkoutName">Workout Name</label>
+                    <input type="text" id="editWorkoutName" class="form-input" placeholder="e.g., Upper Body Strength">
+                </div>
+                <div class="form-group">
+                    <label for="editDescription">Description</label>
+                    <textarea id="editDescription" class="form-textarea" rows="3" placeholder="Brief description..."></textarea>
+                </div>
+                <!-- Template Suggestions -->
+                <div class="form-group">
+                    <label>Or choose a template:</label>
+                    <div class="template-suggestions" id="templateSuggestions"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="editModalCancel">Cancel</button>
+                <button class="btn btn-primary" id="editModalSave">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/schedule.js') }}"></script>
+{% endblock %}

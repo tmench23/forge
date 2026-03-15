@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Workout{% endblock %}
+
+{% block content %}
+<div class="workout-page">
+    <!-- Workout Header -->
+    <div class="workout-header" id="workoutHeader">
+        <div class="workout-header-info">
+            <h1 id="workoutName">Loading...</h1>
+            <p id="workoutDescription" class="workout-desc"></p>
+            <div class="workout-meta">
+                <span class="workout-badge" id="workoutType"></span>
+                <span class="workout-exercise-count" id="exerciseCount"></span>
+            </div>
+        </div>
+        <div class="workout-timer">
+            <div class="timer-display" id="timerDisplay">00:00</div>
+            <div class="timer-controls">
+                <button class="btn btn-sm btn-outline" id="timerStart">Start Timer</button>
+                <button class="btn btn-sm btn-outline" id="timerPause" style="display:none;">Pause</button>
+                <button class="btn btn-sm btn-outline" id="timerReset" style="display:none;">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="workout-progress-bar">
+        <div class="progress-fill" id="workoutProgressFill"></div>
+        <span class="progress-text" id="workoutProgressText">0% complete</span>
+    </div>
+
+    <!-- Exercise List -->
+    <div class="exercise-list" id="exerciseList">
+        <!-- Populated by JS -->
+    </div>
+
+    <!-- Workout Complete Section -->
+    <div class="workout-complete-section" id="workoutComplete" style="display:none;">
+        <div class="complete-card">
+            <div class="complete-icon">&#x1F389;</div>
+            <h2>Workout Complete!</h2>
+            <div class="complete-stats">
+                <div class="complete-stat">
+                    <span class="complete-stat-value" id="completeDuration">0</span>
+                    <span class="complete-stat-label">Minutes</span>
+                </div>
+                <div class="complete-stat">
+                    <span class="complete-stat-value" id="completeExercises">0</span>
+                    <span class="complete-stat-label">Exercises</span>
+                </div>
+                <div class="complete-stat">
+                    <span class="complete-stat-value" id="completeSets">0</span>
+                    <span class="complete-stat-label">Sets</span>
+                </div>
+            </div>
+            <div class="complete-rating">
+                <p>How did it feel?</p>
+                <div class="rating-stars" id="ratingStars">
+                    <button class="rating-star" data-rating="1">&#x2B50;</button>
+                    <button class="rating-star" data-rating="2">&#x2B50;</button>
+                    <button class="rating-star" data-rating="3">&#x2B50;</button>
+                    <button class="rating-star" data-rating="4">&#x2B50;</button>
+                    <button class="rating-star" data-rating="5">&#x2B50;</button>
+                </div>
+            </div>
+            <div class="complete-notes">
+                <textarea id="sessionNotes" class="form-textarea" rows="3" placeholder="Any notes about this workout..."></textarea>
+            </div>
+            <div class="complete-actions">
+                <button class="btn btn-primary btn-lg" id="finishWorkout">Save & Finish</button>
+                <a href="/" class="btn btn-outline btn-lg">Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Guide Modal -->
+    <div class="modal-overlay" id="formGuideModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h3 id="formGuideName">Exercise Form Guide</h3>
+                <button class="modal-close" id="formGuideClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-guide-content">
+                    <div class="form-guide-visual" id="formGuideVisual">
+                        <!-- GIF/Video goes here -->
+                    </div>
+                    <div class="form-guide-details">
+                        <div class="form-guide-info">
+                            <span class="form-guide-badge" id="formGuideMuscle"></span>
+                            <span class="form-guide-badge" id="formGuideEquipment"></span>
+                            <span class="form-guide-badge" id="formGuideDifficulty"></span>
+                        </div>
+                        <p id="formGuideDescription" class="form-guide-desc"></p>
+                        <h4>Form Cues</h4>
+                        <ol class="form-cues-list" id="formGuideCues"></ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>const TEMPLATE_ID = {{ template_id }};</script>
+<script src="{{ url_for('static', filename='js/workout.js') }}"></script>
+{% endblock %}
