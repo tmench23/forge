@@ -155,13 +155,9 @@ function showFormGuide(exercise) {
     }
     if (descEl) descEl.textContent = exercise.description;
 
-    // Visual - GIF demonstration
+    // Visual - SVG animation
     if (visualEl) {
-        if (exercise.animation_url) {
-            visualEl.innerHTML = `<img src="${exercise.animation_url}" alt="Demonstration of ${exercise.name}" loading="lazy">`;
-        } else {
-            visualEl.innerHTML = `<div style="padding:2rem;text-align:center;color:var(--text-muted)">No demonstration available</div>`;
-        }
+        ExerciseAnimations.render(visualEl, exercise.name);
     }
 
     // Form cues

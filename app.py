@@ -763,7 +763,7 @@ def _seed_exercises():
                 'Lower slowly with control, feeling the chest stretch',
                 'Keep shoulder blades squeezed together throughout'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/652.gif',
+            animation_url='',
             target_sets=4, target_reps=10,
         ),
         Exercise(
@@ -777,7 +777,7 @@ def _seed_exercises():
                 'Squeeze chest to bring dumbbells back together',
                 'Do not go too deep - stop when arms are level with torso'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/4.gif',
+            animation_url='',
             target_sets=3, target_reps=12,
         ),
         Exercise(
@@ -791,7 +791,7 @@ def _seed_exercises():
                 'Lower with control to upper chest',
                 'Keep core braced and back pressed into bench'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/3.gif',
+            animation_url='',
             target_sets=3, target_reps=10,
         ),
         Exercise(
@@ -805,7 +805,7 @@ def _seed_exercises():
                 'Push back up to full arm extension',
                 'Keep core tight - no sagging hips'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/171.gif',
+            animation_url='',
             target_sets=3, target_reps=15,
         ),
 
@@ -821,7 +821,7 @@ def _seed_exercises():
                 'Squeeze shoulder blade at the top',
                 'Lower slowly with full control'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/291.gif',
+            animation_url='',
             target_sets=4, target_reps=10, back_hip_focus=True,
         ),
         Exercise(
@@ -835,7 +835,7 @@ def _seed_exercises():
                 'Squeeze shoulder blades together at top',
                 'Lower with control, feeling the stretch'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/289.gif',
+            animation_url='',
             target_sets=4, target_reps=10, back_hip_focus=True,
         ),
         Exercise(
@@ -849,7 +849,7 @@ def _seed_exercises():
                 'Slowly return to start with control',
                 'Keep shoulders down, away from ears'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/862.gif',
+            animation_url='',
             target_sets=3, target_reps=15, back_hip_focus=True,
         ),
         Exercise(
@@ -863,7 +863,7 @@ def _seed_exercises():
                 'Squeeze lats at the bottom of movement',
                 'Return slowly with full stretch at the top'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/834.gif',
+            animation_url='',
             target_sets=3, target_reps=12, back_hip_focus=True,
         ),
         Exercise(
@@ -877,7 +877,7 @@ def _seed_exercises():
                 'Squeeze shoulder blades at the top',
                 'Use light weight and focus on the squeeze'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/205.gif',
+            animation_url='',
             target_sets=3, target_reps=12, back_hip_focus=True,
         ),
 
@@ -893,7 +893,7 @@ def _seed_exercises():
                 'Lower slowly to shoulder height',
                 'Keep core braced throughout the movement'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/119.gif',
+            animation_url='',
             target_sets=3, target_reps=10,
         ),
         Exercise(
@@ -907,7 +907,7 @@ def _seed_exercises():
                 'Lower slowly with control',
                 'Use lighter weight - this is an isolation move'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/118.gif',
+            animation_url='',
             target_sets=3, target_reps=12,
         ),
         Exercise(
@@ -921,7 +921,7 @@ def _seed_exercises():
                 'Lower with control, do not swing',
                 'Alternate arms or raise both together'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/117.gif',
+            animation_url='',
             target_sets=3, target_reps=12,
         ),
 
@@ -937,7 +937,7 @@ def _seed_exercises():
                 'Squeeze at the top, then lower slowly',
                 'Do not swing or use momentum'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/96.gif',
+            animation_url='',
             target_sets=3, target_reps=12,
         ),
         Exercise(
@@ -951,7 +951,7 @@ def _seed_exercises():
                 'Squeeze at top and lower slowly',
                 'Maintain upright posture throughout'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/97.gif',
+            animation_url='',
             target_sets=3, target_reps=12,
         ),
         Exercise(
@@ -965,7 +965,7 @@ def _seed_exercises():
                 'Extend back to the top, squeezing triceps',
                 'Control the weight - do not let it drop'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/109.gif',
+            animation_url='',
             target_sets=3, target_reps=12,
         ),
         Exercise(
@@ -979,7 +979,7 @@ def _seed_exercises():
                 'Hold at top for a beat, then lower slowly',
                 'Keep upper arm stationary throughout'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/108.gif',
+            animation_url='',
             target_sets=3, target_reps=12,
         ),
         Exercise(
@@ -993,7 +993,7 @@ def _seed_exercises():
                 'Squeeze at top and lower slowly',
                 'Keep elbows pinned at your sides'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/851.gif',
+            animation_url='',
             target_sets=3, target_reps=15,
         ),
 
@@ -1009,7 +1009,7 @@ def _seed_exercises():
                 'Go as deep as comfortable - aim for thighs parallel',
                 'Drive through heels to stand back up'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/631.gif',
+            animation_url='',
             target_sets=4, target_reps=12, back_hip_focus=True,
         ),
         Exercise(
@@ -1023,7 +1023,7 @@ def _seed_exercises():
                 'Keep back flat and chest up throughout',
                 'Squeeze glutes to return to standing'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/399.gif',
+            animation_url='',
             target_sets=4, target_reps=10, back_hip_focus=True,
         ),
         Exercise(
@@ -1037,7 +1037,7 @@ def _seed_exercises():
                 'Push through front heel to return to start',
                 'Alternate legs or do all reps on one side'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/380.gif',
+            animation_url='',
             target_sets=3, target_reps=10,
         ),
         Exercise(
@@ -1051,7 +1051,7 @@ def _seed_exercises():
                 'Keep front knee tracking over toes',
                 'Drive through front heel to stand back up'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/670.gif',
+            animation_url='',
             target_sets=3, target_reps=10, back_hip_focus=True,
         ),
         Exercise(
@@ -1065,7 +1065,7 @@ def _seed_exercises():
                 'Keep torso upright throughout',
                 'Do all reps on one side, then switch'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/672.gif',
+            animation_url='',
             target_sets=3, target_reps=10,
         ),
         Exercise(
@@ -1079,7 +1079,7 @@ def _seed_exercises():
                 'Hold at top for a moment, squeeze calves',
                 'Lower slowly below starting position for full stretch'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/377.gif',
+            animation_url='',
             target_sets=3, target_reps=15,
         ),
 
@@ -1095,7 +1095,7 @@ def _seed_exercises():
                 'Do not let hips sag or pike up',
                 'Breathe steadily throughout the hold'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/741.gif',
+            animation_url='',
             target_sets=3, target_reps=1, target_duration_seconds=45, is_timed=True,
             back_hip_focus=True,
         ),
@@ -1110,7 +1110,7 @@ def _seed_exercises():
                 'Return to start and repeat on other side',
                 'Keep lower back pressed to floor throughout'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/907.gif',
+            animation_url='',
             target_sets=3, target_reps=10, back_hip_focus=True,
         ),
         Exercise(
@@ -1124,7 +1124,7 @@ def _seed_exercises():
                 'Hold extended position briefly, then return',
                 'Focus on stability over speed'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/906.gif',
+            animation_url='',
             target_sets=3, target_reps=10, back_hip_focus=True,
         ),
         Exercise(
@@ -1138,7 +1138,7 @@ def _seed_exercises():
                 'Keep core engaged and back straight',
                 'Control the rotation - do not use momentum'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/577.gif',
+            animation_url='',
             target_sets=3, target_reps=20,
         ),
         Exercise(
@@ -1152,7 +1152,7 @@ def _seed_exercises():
                 'Keep movement strictly in the side-to-side plane',
                 'Do all reps on one side, then switch'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/578.gif',
+            animation_url='',
             target_sets=3, target_reps=15,
         ),
 
@@ -1168,7 +1168,7 @@ def _seed_exercises():
                 'Flow smoothly between positions with breath',
                 'Inhale for cow, exhale for cat'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/908.gif',
+            animation_url='',
             target_sets=2, target_reps=10, back_hip_focus=True,
         ),
         Exercise(
@@ -1182,7 +1182,7 @@ def _seed_exercises():
                 'Keep torso upright and core engaged',
                 'Hold for 30 seconds each side'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/467.gif',
+            animation_url='',
             target_sets=2, target_reps=1, target_duration_seconds=30, is_timed=True,
             back_hip_focus=True,
         ),
@@ -1197,7 +1197,7 @@ def _seed_exercises():
                 'Keep hips square to the front',
                 'Hold for 30-60 seconds, breathe deeply'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/909.gif',
+            animation_url='',
             target_sets=2, target_reps=1, target_duration_seconds=45, is_timed=True,
             back_hip_focus=True,
         ),
@@ -1212,7 +1212,7 @@ def _seed_exercises():
                 'Hold rotation briefly, then switch sides',
                 'Move through each position with control'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/910.gif',
+            animation_url='',
             target_sets=2, target_reps=5, back_hip_focus=True,
         ),
         Exercise(
@@ -1226,7 +1226,7 @@ def _seed_exercises():
                 'Follow your hand with your eyes',
                 'Hold the open position, then return slowly'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/911.gif',
+            animation_url='',
             target_sets=2, target_reps=8, back_hip_focus=True,
         ),
         Exercise(
@@ -1240,7 +1240,7 @@ def _seed_exercises():
                 'Keep head and shoulders on the floor',
                 'Hold 30 seconds each side, breathe deeply'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/468.gif',
+            animation_url='',
             target_sets=2, target_reps=1, target_duration_seconds=30, is_timed=True,
             back_hip_focus=True,
         ),
@@ -1255,7 +1255,7 @@ def _seed_exercises():
                 'Let forehead rest on the floor',
                 'Breathe deeply into your lower back'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/912.gif',
+            animation_url='',
             target_sets=2, target_reps=1, target_duration_seconds=45, is_timed=True,
             back_hip_focus=True,
         ),
@@ -1270,7 +1270,7 @@ def _seed_exercises():
                 'Return along the same path',
                 'Use a wide grip - narrow as flexibility improves'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/863.gif',
+            animation_url='',
             target_sets=2, target_reps=10,
         ),
         Exercise(
@@ -1284,7 +1284,7 @@ def _seed_exercises():
                 'Feel the stretch in both hips',
                 'Hold 30 seconds then switch sides'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/913.gif',
+            animation_url='',
             target_sets=2, target_reps=1, target_duration_seconds=30, is_timed=True,
             back_hip_focus=True,
         ),
@@ -1299,7 +1299,7 @@ def _seed_exercises():
                 'Reach toward toes until you feel the stretch',
                 'Hold for 30 seconds each side'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/469.gif',
+            animation_url='',
             target_sets=2, target_reps=1, target_duration_seconds=30, is_timed=True,
             back_hip_focus=True,
         ),
@@ -1316,7 +1316,7 @@ def _seed_exercises():
                 'Keep a steady, rhythmic pace',
                 'Land softly on the balls of your feet'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/740.gif',
+            animation_url='',
             target_sets=3, target_reps=1, target_duration_seconds=45, is_timed=True,
         ),
         Exercise(
@@ -1330,7 +1330,7 @@ def _seed_exercises():
                 'Keep hips low and core engaged',
                 'Maintain a steady, fast pace'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/742.gif',
+            animation_url='',
             target_sets=3, target_reps=1, target_duration_seconds=30, is_timed=True,
         ),
         Exercise(
@@ -1344,7 +1344,7 @@ def _seed_exercises():
                 'Stay on balls of feet',
                 'Keep core tight and posture upright'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/743.gif',
+            animation_url='',
             target_sets=3, target_reps=1, target_duration_seconds=30, is_timed=True,
         ),
         Exercise(
@@ -1358,7 +1358,7 @@ def _seed_exercises():
                 'Jump feet back to squat position',
                 'Explode up into a jump with arms overhead'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/744.gif',
+            animation_url='',
             target_sets=3, target_reps=10,
         ),
         Exercise(
@@ -1372,7 +1372,7 @@ def _seed_exercises():
                 'Land softly and immediately squat for next rep',
                 'Keep chest up throughout'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/852.gif',
+            animation_url='',
             target_sets=3, target_reps=12,
         ),
         Exercise(
@@ -1386,7 +1386,7 @@ def _seed_exercises():
                 'Jump back to the other side',
                 'Swing arms for momentum and balance'
             ]),
-            animation_url='https://cdn.jefit.com/assets/img/exercises/gifs/745.gif',
+            animation_url='',
             target_sets=3, target_reps=1, target_duration_seconds=30, is_timed=True,
         ),
     ]
