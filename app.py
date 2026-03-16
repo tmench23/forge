@@ -1559,6 +1559,12 @@ def _seed_quotes():
 
 with app.app_context():
     db.create_all()
+    # Migrate: add template_id column if missing (existing DBs created before this column)
+    with db.engine.connect() as conn:
+        columns = [row[1] for row in conn.execute(db.text("PRAGMA table_info(workout_schedule)"))]
+        if 'template_id' not in columns:
+            conn.execute(db.text("ALTER TABLE workout_schedule ADD COLUMN template_id INTEGER"))
+            conn.commit()
     seed_database()
 
 
