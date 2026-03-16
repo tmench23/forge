@@ -69,7 +69,10 @@ function renderExercises() {
     grid.innerHTML = filtered.map((ex, idx) => `
         <div class="exercise-lib-card animate-slide-up" style="animation-delay:${Math.min(idx * 0.03, 0.5)}s"
              onclick="showExerciseDetail(${ex.id})">
-            <div class="exercise-lib-thumb" data-exercise-name="${ex.name}">
+            <div class="exercise-lib-thumb">
+                ${ex.animation_url
+                    ? `<img src="${ex.animation_url}" alt="${ex.name}" loading="lazy">`
+                    : `<div style="color:var(--text-muted);font-size:2rem">\uD83C\uDFCB\uFE0F</div>`}
             </div>
             <div class="exercise-lib-info">
                 <h3>${ex.name}</h3>
@@ -82,11 +85,6 @@ function renderExercises() {
             </div>
         </div>
     `).join('');
-
-    // Render SVG animations into thumbnails
-    document.querySelectorAll('.exercise-lib-thumb[data-exercise-name]').forEach(el => {
-        ExerciseAnimations.render(el, el.dataset.exerciseName);
-    });
 }
 
 function showExerciseDetail(exerciseId) {
@@ -96,7 +94,11 @@ function showExerciseDetail(exerciseId) {
     document.getElementById('modalExerciseName').textContent = exercise.name;
 
     const visual = document.getElementById('modalVisual');
-    ExerciseAnimations.render(visual, exercise.name);
+    if (exercise.animation_url) {
+        visual.innerHTML = `<img src="${exercise.animation_url}" alt="Demonstration of ${exercise.name}" loading="lazy">`;
+    } else {
+        visual.innerHTML = '<div style="padding:2rem;text-align:center;color:var(--text-muted)">No demonstration available</div>';
+    }
 
     const muscle = document.getElementById('modalMuscle');
     muscle.textContent = exercise.muscle_group;

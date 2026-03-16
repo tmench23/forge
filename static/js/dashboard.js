@@ -50,10 +50,7 @@ async function loadTodayWorkout() {
 
         if (today.schedule) {
             const s = today.schedule;
-            // Find matching template
-            const templates = await API.get('/api/templates');
-            const match = templates.find(t => t.name === s.workout_name);
-            const templateId = match ? match.id : 1;
+            const templateId = s.template_id;
 
             card.innerHTML = `
                 <div class="today-card-content animate-slide-up">
@@ -64,7 +61,7 @@ async function loadTodayWorkout() {
                             <span class="badge badge-${s.workout_type}">${s.workout_type}</span>
                             <span class="badge" style="background:var(--bg-elevated);color:var(--text-secondary)">${today.day_name}</span>
                         </div>
-                        <a href="/workout/${templateId}" class="btn btn-primary">Start Workout \u2192</a>
+                        ${templateId ? `<a href="/workout/${templateId}" class="btn btn-primary">Start Workout \u2192</a>` : ''}
                     </div>
                 </div>`;
         } else {

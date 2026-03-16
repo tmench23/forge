@@ -44,12 +44,8 @@ function renderSchedule() {
         const type = daySchedule ? daySchedule.workout_type : 'rest';
         const isToday = idx === todayIdx;
 
-        // Find matching template for "Start" link
-        let templateId = null;
-        if (daySchedule) {
-            const match = templatesData.find(t => t.name === daySchedule.workout_name);
-            if (match) templateId = match.id;
-        }
+        // Use direct template_id from schedule
+        const templateId = daySchedule ? daySchedule.template_id : null;
 
         return `
             <div class="schedule-card type-${type} ${isToday ? 'today' : ''} animate-slide-up" style="animation-delay:${idx * 0.05}s">
@@ -69,7 +65,9 @@ function renderSchedule() {
 
 function editDay(dayIdx) {
     editingDay = dayIdx;
+    selectedTemplateId = null;
     const daySchedule = scheduleData.find(s => s.day_of_week === dayIdx);
+    if (daySchedule) selectedTemplateId = daySchedule.template_id;
 
     document.getElementById('editModalTitle').textContent = `Edit ${DAY_NAMES[dayIdx]}`;
     document.getElementById('editWorkoutType').value = daySchedule ? daySchedule.workout_type : 'rest';
@@ -79,7 +77,7 @@ function editDay(dayIdx) {
     // Populate template suggestions
     const suggestions = document.getElementById('templateSuggestions');
     suggestions.innerHTML = templatesData.map(t => `
-        <button class="template-suggestion" onclick="selectTemplate('${t.name}', '${t.workout_type}', '${(t.description || '').replace(/'/g, "\\'")}')">
+        <button class="template-suggestion" onclick="selectTemplate(${t.id}, '${t.name}', '${t.workout_type}', '${(t.description || '').replace(/'/g, "\\'")}')">
             ${t.name}
         </button>
     `).join('');
@@ -87,7 +85,10 @@ function editDay(dayIdx) {
     openModal('editModal');
 }
 
-function selectTemplate(name, type, desc) {
+let selectedTemplateId = null;
+
+function selectTemplate(id, name, type, desc) {
+    selectedTemplateId = id;
     document.getElementById('editWorkoutType').value = type;
     document.getElementById('editWorkoutName').value = name;
     document.getElementById('editDescription').value = desc;
@@ -106,10 +107,17 @@ async function saveScheduleEdit() {
 
     // Update local data
     const existing = scheduleData.findIndex(s => s.day_of_week === editingDay);
+    // If no template was explicitly selected, try to find one by name
+    if (!selectedTemplateId) {
+        const match = templatesData.find(t => t.name === name);
+        if (match) selectedTemplateId = match.id;
+    }
+
     const entry = {
         day_of_week: editingDay,
         workout_type: type,
         workout_name: name,
+        template_id: type === 'rest' ? null : selectedTemplateId,
         description: desc,
     };
 

@@ -39,6 +39,7 @@ class WorkoutSchedule(db.Model):
     day_of_week = db.Column(db.Integer, nullable=False)  # 0=Monday ... 6=Sunday
     workout_type = db.Column(db.String(50), nullable=False)  # strength, mobility, cardio, rest
     workout_name = db.Column(db.String(100), nullable=False)
+    template_id = db.Column(db.Integer, nullable=True)  # FK to workout_templates (nullable for rest days)
     description = db.Column(db.Text)
     is_active = db.Column(db.Boolean, default=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
@@ -49,6 +50,7 @@ class WorkoutSchedule(db.Model):
             'day_of_week': self.day_of_week,
             'workout_type': self.workout_type,
             'workout_name': self.workout_name,
+            'template_id': self.template_id,
             'description': self.description,
             'is_active': self.is_active,
         }
@@ -351,6 +353,7 @@ def update_schedule():
             day_of_week=item['day_of_week'],
             workout_type=item['workout_type'],
             workout_name=item['workout_name'],
+            template_id=item.get('template_id'),
             description=item.get('description', ''),
         )
         db.session.add(schedule)
@@ -1465,19 +1468,19 @@ def _seed_schedule():
 
     schedule = [
         WorkoutSchedule(day_of_week=0, workout_type='strength', workout_name='Upper Body Strength',
-                         description='Chest, back, shoulders, and arms with dumbbells and bands'),
+                         template_id=1, description='Chest, back, shoulders, and arms with dumbbells and bands'),
         WorkoutSchedule(day_of_week=1, workout_type='mobility', workout_name='Back & Hip Mobility',
-                         description='Mobility and flexibility focus on back and hips'),
+                         template_id=4, description='Mobility and flexibility focus on back and hips'),
         WorkoutSchedule(day_of_week=2, workout_type='strength', workout_name='Lower Body Strength',
-                         description='Legs, glutes, and core strength training'),
+                         template_id=2, description='Legs, glutes, and core strength training'),
         WorkoutSchedule(day_of_week=3, workout_type='cardio', workout_name='HIIT Cardio Blast',
-                         description='High-intensity cardio for heart health and endurance'),
+                         template_id=6, description='High-intensity cardio for heart health and endurance'),
         WorkoutSchedule(day_of_week=4, workout_type='strength', workout_name='Full Body Strength',
-                         description='Complete full-body strength session'),
+                         template_id=3, description='Complete full-body strength session'),
         WorkoutSchedule(day_of_week=5, workout_type='mobility', workout_name='Full Body Mobility',
-                         description='Full body stretching and mobility work'),
+                         template_id=5, description='Full body stretching and mobility work'),
         WorkoutSchedule(day_of_week=6, workout_type='rest', workout_name='Active Recovery',
-                         description='Rest day - light walking, stretching, or yoga recommended'),
+                         template_id=None, description='Rest day - light walking, stretching, or yoga recommended'),
     ]
 
     for s in schedule:
