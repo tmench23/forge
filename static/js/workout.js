@@ -316,11 +316,7 @@ function openFormGuide(exerciseId) {
     document.getElementById('formGuideName').textContent = exercise.name;
 
     const visual = document.getElementById('formGuideVisual');
-    if (exercise.animation_url) {
-        visual.innerHTML = `<img src="${exercise.animation_url}" alt="Demonstration of ${exercise.name}" loading="lazy">`;
-    } else {
-        visual.innerHTML = '<div style="padding:2rem;text-align:center;color:var(--text-muted)">No demonstration available</div>';
-    }
+    ExerciseAnimations.render(visual, exercise.name);
 
     const muscle = document.getElementById('formGuideMuscle');
     muscle.textContent = exercise.muscle_group;
