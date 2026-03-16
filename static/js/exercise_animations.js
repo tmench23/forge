@@ -1,9 +1,66 @@
 /**
- * ForgeFit - Exercise SVG Animations
- * Generates accurate stick-figure animations for every exercise.
+ * ForgeFit - Exercise Animations
+ * Uses animated GIF demonstrations from fitnessprogramer.com with SVG fallback.
  */
 
 const ExerciseAnimations = (() => {
+    // ── GIF URL mapping (fitnessprogramer.com) ──
+    const FP = 'https://fitnessprogramer.com/wp-content/uploads';
+    const gifUrls = {
+        // Chest
+        'Dumbbell Bench Press':      `${FP}/2021/02/Dumbbell-Press-1.gif`,
+        'Dumbbell Fly':              `${FP}/2021/02/Dumbbell-Fly.gif`,
+        'Incline Dumbbell Press':    `${FP}/2021/02/Incline-Dumbbell-Press.gif`,
+        'Push-Ups':                  `${FP}/2021/02/Push-Up.gif`,
+        // Back
+        'Dumbbell Row':              `${FP}/2021/02/Dumbbell-Row.gif`,
+        'Bent Over Dumbbell Row':    `${FP}/2021/02/Bent-Over-Dumbbell-Row.gif`,
+        'Band Pull-Apart':           `${FP}/2021/06/Band-pull-apart.gif`,
+        'Band Lat Pulldown':         `${FP}/2022/02/Band-Alternating-Lat-Pulldown.gif`,
+        'Reverse Fly':               `${FP}/2021/02/Dumbbell-Reverse-Fly.gif`,
+        // Shoulders
+        'Dumbbell Shoulder Press':   `${FP}/2021/02/Dumbbell-Shoulder-Press.gif`,
+        'Lateral Raise':             `${FP}/2021/02/Dumbbell-Lateral-Raise.gif`,
+        'Front Raise':               `${FP}/2021/02/Dumbbell-Front-Raise.gif`,
+        // Arms
+        'Dumbbell Bicep Curl':       `${FP}/2021/02/Dumbbell-Curl.gif`,
+        'Hammer Curl':               `${FP}/2021/02/Hammer-Curl.gif`,
+        'Tricep Overhead Extension': `${FP}/2021/02/Dumbbell-Triceps-Extension.gif`,
+        'Tricep Kickback':           `${FP}/2021/02/Dumbbell-Kickback.gif`,
+        'Band Bicep Curl':           `${FP}/2022/02/Band-Biceps-Curl.gif`,
+        // Legs
+        'Goblet Squat':              `${FP}/2023/01/Dumbbell-Goblet-Squat.gif`,
+        'Dumbbell Romanian Deadlift':`${FP}/2021/02/Dumbbell-Romanian-Deadlift.gif`,
+        'Dumbbell Lunge':            `${FP}/2021/02/Dumbbell-Lunge.gif`,
+        'Bulgarian Split Squat':     `${FP}/2021/05/Dumbbell-Bulgarian-Split-Squat.gif`,
+        'Dumbbell Step-Up':          `${FP}/2021/12/Dumbeel-Step-Up.gif`,
+        'Dumbbell Calf Raise':       `${FP}/2021/02/Dumbbell-Calf-Raise.gif`,
+        // Core
+        'Plank':                     `${FP}/2021/02/plank.gif`,
+        'Dead Bug':                  `${FP}/2021/05/Dead-Bug.gif`,
+        'Bird Dog':                  `${FP}/2022/07/Bird-Dog.gif`,
+        'Russian Twist':             `${FP}/2021/02/Russian-Twist.gif`,
+        'Dumbbell Side Bend':        `${FP}/2021/05/Dumbbell-Side-Bend.gif`,
+        // Mobility / Flexibility
+        'Cat-Cow Stretch':           `${FP}/2021/02/cat-cow.gif`,
+        'Hip Flexor Stretch':        `${FP}/2021/08/Kneeling-Hip-Flexor-Stretch.gif`,
+        'Pigeon Pose':               `${FP}/2022/02/Pigeon-Stretch.gif`,
+        'World\'s Greatest Stretch': `${FP}/2022/02/Worlds-Greatest-Stretch.gif`,
+        'Thoracic Spine Rotation':   `${FP}/2022/08/Kneeling-T-spine-Rotation.gif`,
+        'Figure Four Stretch':       `${FP}/2022/02/Figure-Four-Stretch.gif`,
+        'Child\'s Pose':             `${FP}/2021/06/Childs-Pose.gif`,
+        'Band Shoulder Dislocate':   `${FP}/2021/08/Band-Shoulder-Dislocate.gif`,
+        '90/90 Hip Stretch':         `${FP}/2022/08/90-90-Hip-Stretch.gif`,
+        'Standing Hamstring Stretch':`${FP}/2021/05/Standing-Hamstring-Stretch.gif`,
+        // Cardio
+        'Jumping Jacks':             `${FP}/2021/05/Jumping-jack.gif`,
+        'Mountain Climbers':         `${FP}/2021/02/Mountain-climber.gif`,
+        'High Knees':                `${FP}/2021/09/Run-in-Place.gif`,
+        'Burpees':                   `${FP}/2021/02/burpees.gif`,
+        'Band Squat Jumps':          `${FP}/2021/02/Jump-Squat.gif`,
+        'Skater Jumps':              `${FP}/2021/02/Skater.gif`,
+    };
+
     // ── Colour palette (matches dark theme) ──
     const C = {
         body:  '#a5b4fc',   // indigo-300
@@ -1084,18 +1141,42 @@ const ExerciseAnimations = (() => {
 
     /**
      * Render an exercise animation into a container element.
-     * Falls back to a placeholder icon if no animation exists.
+     * Tries GIF first, falls back to SVG, then to placeholder.
      */
     function render(container, exerciseName) {
-        const svg = getAnimation(exerciseName);
-        if (svg) {
-            container.innerHTML = svg;
+        const gifUrl = gifUrls[exerciseName];
+        if (gifUrl) {
+            const img = document.createElement('img');
+            img.alt = exerciseName;
+            img.loading = 'lazy';
+            img.style.cssText = 'width:100%;height:100%;object-fit:contain;border-radius:8px;background:#1e293b';
+            img.src = gifUrl;
+            img.onerror = () => {
+                // GIF failed to load — fall back to SVG
+                const svg = getAnimation(exerciseName);
+                if (svg) {
+                    container.innerHTML = svg;
+                } else {
+                    renderPlaceholder(container, exerciseName);
+                }
+            };
+            container.innerHTML = '';
+            container.appendChild(img);
         } else {
-            container.innerHTML = `<div style="padding:2rem;text-align:center;color:var(--text-muted)">
-                <div style="font-size:3rem;margin-bottom:0.5rem">\uD83C\uDFCB\uFE0F</div>
-                <div style="font-size:0.8rem">No animation available</div>
-            </div>`;
+            const svg = getAnimation(exerciseName);
+            if (svg) {
+                container.innerHTML = svg;
+            } else {
+                renderPlaceholder(container, exerciseName);
+            }
         }
+    }
+
+    function renderPlaceholder(container, exerciseName) {
+        container.innerHTML = `<div style="padding:2rem;text-align:center;color:var(--text-muted)">
+            <div style="font-size:3rem;margin-bottom:0.5rem">\uD83C\uDFCB\uFE0F</div>
+            <div style="font-size:0.8rem">${exerciseName || 'No animation available'}</div>
+        </div>`;
     }
 
     return { getAnimation, render };
