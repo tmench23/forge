@@ -13,10 +13,8 @@ async function loadExerciseDetail() {
 
         card.innerHTML = `
             <div class="exercise-detail-hero">
-                <div class="exercise-detail-visual">
-                    ${ex.animation_url
-                        ? `<img src="${ex.animation_url}" alt="Demonstration of ${ex.name}" loading="lazy">`
-                        : '<div style="font-size:4rem;color:var(--text-muted)">\uD83C\uDFCB\uFE0F</div>'}
+                <div class="exercise-detail-visual" id="exerciseVisual">
+                </div>
                 <div class="exercise-detail-info">
                     <h1>${ex.name}</h1>
                     <div class="exercise-detail-badges">
@@ -44,6 +42,9 @@ async function loadExerciseDetail() {
                 </div>
             </div>
             <div id="historySection" style="padding:1.5rem 2rem"></div>`;
+
+        // Render SVG animation
+        ExerciseAnimations.render(document.getElementById('exerciseVisual'), ex.name);
 
         // Load history
         loadHistory();
